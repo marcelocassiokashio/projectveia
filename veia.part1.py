@@ -17,7 +17,7 @@ def mostrar_tabuleiro(tabuleiro):
 
             if coluna < 2:
                 print(" | ", end="")
-                
+
         print()
 
         if linha < 2:
@@ -34,3 +34,27 @@ def ler_posicao(mensagem):
                 return numero - 1
 
         print("Digite um número entre 1 e 3!")
+
+def verificar_vitoria(tabuleiro, jogador):
+    for i in range(3):
+        if (tabuleiro[i][0] == jogador and
+            tabuleiro[i][1] == jogador and
+            tabuleiro[i][2] == jogador):
+            return True
+
+        if (tabuleiro[0][i] == jogador and
+            tabuleiro[1][i] == jogador and
+            tabuleiro[2][i] == jogador):
+            return True
+
+    if (tabuleiro[0][0] == jogador and
+        tabuleiro[1][1] == jogador and
+        tabuleiro[2][2] == jogador):
+        return True
+
+    if (tabuleiro[0][2] == jogador and
+        tabuleiro[1][1] == jogador and
+        tabuleiro[2][0] == jogador):
+        return True
+
+    return False
