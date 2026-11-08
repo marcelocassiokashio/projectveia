@@ -22,7 +22,7 @@ def mostrar_tabuleiro(tabuleiro):
 
         if linha < 2:
             print("  -----------")
-
+            
 def ler_posicao(mensagem):
     while True:
         valor = input(mensagem).strip()
@@ -58,3 +58,11 @@ def verificar_vitoria(tabuleiro, jogador):
         return True
 
     return False
+
+def verificar_empate(tabuleiro):
+    for linha in range(3):
+        for coluna in range(3):
+            if tabuleiro[linha][coluna] == " ":
+                return False
+
+    return True
