@@ -128,3 +128,40 @@ def mostrar_historico(historico):
     else:
         for i in range(len(historico)):
             print("Partida", i + 1, ":", historico[i])
+
+def menu():
+    placar = {"X": 0, "O": 0, "E": 0}
+    historico = []
+
+    while True:
+        print("===== JOGO DA VELHA =====")
+        print("1 - Jogar")
+        print("2 - Regras")
+        print("3 - Placar")
+        print("4 - Histórico")
+        print("5 - Sair")
+
+        opcao = input("Escolha uma opção: ").strip()
+
+        if opcao == "1":
+            resultado = jogar()
+            placar[resultado] += 1
+            historico.append(resultado)
+
+        elif opcao == "2":
+            mostrar_regras()
+
+        elif opcao == "3":
+            mostrar_placar(placar)
+
+        elif opcao == "4":
+            mostrar_historico(historico)
+
+        elif opcao == "5":
+            print("Obrigado por jogar!")
+            break
+
+        else:
+            print("Opção inválida!")
+            
+menu()
